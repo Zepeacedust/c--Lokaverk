@@ -2,12 +2,13 @@
 #include "SafnKostur.h"
 
 using namespace std;
-Safnkostur::SafnKostur() 
+SafnKostur::SafnKostur()
 {
-	id = 0;
-	titill = "NULL";
+	this->id = 0;
+	this->titill = "NULL";
 }
-Safnkostur::SafnKostur(int _id, string _titill) 
+
+SafnKostur::SafnKostur(int _id, string _titill)
 {
 	this->id = _id;
 	this->titill = _titill;
@@ -30,7 +31,11 @@ void SafnKostur::set_titill(string _titill)
 {
 	this->titill = _titill;
 }
-virtual	void SafnKostur::prenta() 
+void SafnKostur::prenta() 
 {
 	cout << "SafnKostur: " << this->titill << ", ID: " << this->id << endl;
+}
+void SafnKostur::set_special(string special) 
+{
+	cout << "ekki got, segðu Arnóri ef þetta gerist" << endl;
 }

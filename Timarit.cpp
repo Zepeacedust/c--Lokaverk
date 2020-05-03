@@ -3,15 +3,15 @@
 using namespace std;
 void Timarit::prenta()
 {
-	cout "Myndband:" << this->titill << ", ID: " << this->id << ", Lengd: " << this->lengd << endl;
+	cout << "Tímarit : " << this->titill << ", ID: " << this->id << ", tölublað: " << this->tolublad << endl;
 }
 Timarit::Timarit() : SafnKostur()
 {
-	this->lengd = 0;
+	this->tolublad = 0;
 }
 Timarit::Timarit(int _id, string _titill, int _tolublad) : SafnKostur(_id, _titill)
 {
-	this->lengd = _tolublad
+	this->tolublad = _tolublad;
 }
 void Timarit::set_tolublad(int _tolublad)
 {
@@ -21,4 +21,8 @@ int Timarit::get_tolublad()
 {
 	return this->tolublad;
 }
-Timarit::~Timarit();
+void Timarit::set_special(string special) 
+{
+	this->tolublad = stoi(special);
+}
+Timarit::~Timarit() {}

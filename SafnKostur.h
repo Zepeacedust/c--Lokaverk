@@ -1,8 +1,9 @@
+#pragma once
 #include <String>
 using namespace std;
 class SafnKostur {
 protected:
-	int id {get, set};
+	int id;
 	string titill;
 public:
 	SafnKostur();
@@ -12,4 +13,6 @@ public:
 	string get_titill();
 	void set_titill(string _titill);
 	virtual void prenta();
+	virtual void set_special(string special);
+	virtual ~SafnKostur() {}
 };
