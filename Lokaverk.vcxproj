@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="Bok.h" />
     <ClInclude Include="HashMap.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="Safn_Node.h" />
     <ClInclude Include="Myndband.h" />
     <ClInclude Include="SafnKostur.h" />

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "Bok.h"
 using namespace std;
 void Bok::prenta()
@@ -24,5 +25,12 @@ string Bok::get_hofundur()
 void Bok::set_special(string special) 
 {
 	this->hofundur = special;
+}
+void Bok::write(string filename)
+{
+
+	ofstream file_obj;
+	file_obj.open(filename);
+	file_obj << "bok" << " " << this->id << " " << this->titill << " " << this->hofundur;
 }
 Bok::~Bok() {}

@@ -8,13 +8,13 @@ SafnKostur::SafnKostur()
 	this->titill = "NULL";
 }
 
-SafnKostur::SafnKostur(int _id, string _titill)
+SafnKostur::SafnKostur(unsigned int _id, string _titill)
 {
 	this->id = _id;
 	this->titill = _titill;
 }
 
-int	SafnKostur::get_id() 
+unsigned int SafnKostur::get_id()
 {
 	return this->id;
 }
@@ -36,6 +36,11 @@ void SafnKostur::prenta()
 	cout << "SafnKostur: " << this->titill << ", ID: " << this->id << endl;
 }
 void SafnKostur::set_special(string special) 
+{
+	cout << "ekki got, segðu Arnóri ef þetta gerist" << endl;
+}
+
+void SafnKostur::write(string filename)
 {
 	cout << "ekki got, segðu Arnóri ef þetta gerist" << endl;
 }

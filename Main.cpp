@@ -1,5 +1,7 @@
 #include <iostream>
 #include <sstream>
+#include <fstream>
+
 
 #include "HashMap.h"
 #include "SafnKostur.h"
@@ -7,6 +9,7 @@
 #include "Bok.h"
 #include "Myndband.h"
 #include <locale>
+#include "main.h"
 using namespace std;
 // commands: skrá, print, breyta, eiða
 
@@ -85,6 +88,42 @@ int main()
 			default:
 				break;
 			};
+		}
+		else if (command == "write")
+		{
+			cout << "reeeeee" << endl;
+			int id;
+			ss >> id;
+			string filename;
+			ss >> filename;
+			SafnKostur* current = bokasafn.finna_stak(id)->data;
+			current->prenta();
+
+			current->write(filename);
+
+		}
+		else if (command == "read") 
+		{
+			string filename;
+			ss >> filename;
+			ifstream inp;
+			int id;
+			string type, titill, special;
+			inp.open(filename);
+			inp >> type >> id >> titill >> special;
+			cout << type << id << titill << special;
+			if (type == "bok")
+			{
+				bokasafn.setja_i_toflu(new Bok(id, titill, special));
+			}
+			else if (type == "timarit")
+			{
+				bokasafn.setja_i_toflu(new Timarit(id, titill, stoi(special)));
+			}
+			else if (type == "myndband")
+			{
+				bokasafn.setja_i_toflu(new Myndband(id, titill, stoi(special)));
+			}
 		}
 	}
 }

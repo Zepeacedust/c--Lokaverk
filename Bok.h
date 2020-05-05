@@ -11,4 +11,5 @@ public:
 	string get_hofundur();
 	~Bok();
 	void set_special(string special);
+	void write(string filename);
 };
