@@ -1,4 +1,5 @@
 #include "HashMap.h"
+#include <iostream>
 
 
 HashMap::HashMap() : size(8) { this->taflan = new Safn_Node * [this->size](); }
@@ -29,6 +30,13 @@ void HashMap::eida_staki(int id)
 	Safn_Node* current = this->taflan[bucket_id];
 
 	if (current == nullptr) { return; }
+	if (current->data->get_id() == id) 
+	{
+		Safn_Node* temp = current->next;
+		delete(current);
+		this->taflan[bucket_id] = temp;
+		return;
+	}
 	while (current->next != nullptr && current->next->data->get_id() == id)
 		current = current->next;
 	Safn_Node* temp = current->next;
@@ -55,5 +63,13 @@ Safn_Node* HashMap::finna_stak(int id) {
 
 void HashMap::prenta_stak(int id) 
 {
-	this->finna_stak(id)->data->prenta();
+	Safn_Node* current = this->finna_stak(id);
+	if (current != nullptr) 
+	{
+		this->finna_stak(id)->data->prenta();
+	}
+	else
+	{
+		std::cout << "No Object Found" << std::endl;
+	}
 }

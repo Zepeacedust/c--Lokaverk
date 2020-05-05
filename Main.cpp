@@ -30,8 +30,19 @@ int main()
 		ss >> command;
 		if (command == "help") 
 		{
-			//todo
-			cout << "skra, print, breyta, eiða" << endl;
+			string query;
+			ss >> query;
+			if (query == "") 
+			{
+				cout << "skipannir skra, eida, prenta, breyta, write, read, help" << endl << "help [Skipun] til að sjá meira um skipun" << endl;
+			}
+			else if (query == "skra") { cout << "skra [Type] [Id] [Titill] [Special]: Bætir staki þeð þessa eigileika í bókasafnið" << endl; }
+			else if (query == "eida") { cout << "eida [id]: eida staki úr Bókasafni með gefið id" << endl; }
+			else if (query == "prenta") { cout << "prenta [id]: finna og prenta stak með id í bókasafni" << endl; }
+			else if (query == "breyta") { cout << "breyta [id] [thing] [breyting]: breyta titil(thing = 1) eða Special(thing = 2) í [breyting]. special er sérstaki variable undirklasana" << endl; }
+			else if (query == "write") { cout << "write [id] [filename]: skrifa hlut með [id] í file með [filename], overwritar file  ef það er til fyrir" << endl; }
+			else if (query == "read") { cout << "read [filename]: bætir staki í bókasafn eftir [filename]" << endl; }
+			else if (query == "help") { cout << "help [query](optional): skrifar allar skipannir ef ekkert query er gefið, annars gefa lýsingu á query," << endl; }
 		} else if (command == "skra") 
 		{
 			string type;
@@ -55,6 +66,10 @@ int main()
 				string titill;
 				ss >> id >> titill >> lengd;
 				bokasafn.setja_i_toflu(new Myndband(id, titill, lengd));
+			}
+			else
+			{
+				cout << "Type ekki þekkt, vinsamlegast reyndu aftur" << endl;
 			}
 		}
 		else if (command == "eida")
@@ -123,6 +138,10 @@ int main()
 			else if (type == "myndband")
 			{
 				bokasafn.setja_i_toflu(new Myndband(id, titill, stoi(special)));
+			}
+			else 
+			{
+				cout << "Type ekki þekkt, vinsamlegast reyndu aftur" << endl;
 			}
 		}
 	}
